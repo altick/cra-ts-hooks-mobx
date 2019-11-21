@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { observer } from 'mobx-react-lite';
+import { RootStoreContext } from './stores/RootStore';
+import UserProfileEditor from './components/UserProfileEditor';
+import UserProfile from './components/UserProfile';
 
 const App: React.FC = () => {
+  const { appStore } = React.useContext(RootStoreContext);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header>{appStore.title}</header>
+      <hr />
+      {appStore.editMode
+        ? <UserProfileEditor />
+        : <UserProfile />}
     </div>
   );
 }
 
-export default App;
+export default observer(App);

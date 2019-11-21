@@ -1,0 +1,21 @@
+{
+	"ts_functional_component": {
+		"scope": "typescriptreact",
+		"prefix": "tsfc",
+		"body": [
+			"import React from 'react';",
+			"",
+			"type ${1:ComponentName}Props = {",
+			"};",
+			"",
+			"const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = props => {",
+			"",
+			"   return (",
+			"      <div>Hello world!</div>",
+			"   );",
+			"}",
+			"",
+			"export default ${1:ComponentName};",
+		]
+	},
+}
